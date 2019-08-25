@@ -1,0 +1,144 @@
+[ 3D Futuristic Chess Board ]
+
+FILE_NAME = "RING.DAT"
+TIME      = 1
+ANTIALIASING (
+        COUNT = 4,
+        THRESHOLD = .5,
+)
+
+SCENE (
+        FIRST_SCAN = 140;
+        LAST_SCAN =  170;
+)
+
+SKY ( COLOR = (0.0, 0.1, 0.2) )
+
+OBSERVER (
+        LOCATION = (0, 300, 1000),
+        VIEW     = (0, -65, -216),
+        UP       = ( 0, 1, 0),
+)
+
+LIGHT (
+    COLOR = (.9, .9, .9),
+    CENTER = (295, 600, 500),
+    DISTANCE = 700,
+    RADIUS = 50,
+)
+
+CHECKERBOARD (
+        NAME = "CHECK_BOARD",
+        COLOR = (1.0, 1.0, 1.0),
+        SIZE = (100, 100, 100),
+)
+WAVE (
+        NAME = "W1",
+        CENTER = (-500, 0, -200),
+        WAVELENGTH = 13,
+        AMPLITUDE = 3,
+        DAMP  = 1,
+        PROPAGATE = 0,
+)
+
+WAVE (
+        NAME = "W2",
+        CENTER = (-200, 0, 450),
+        WAVELENGTH = 13,
+        AMPLITUDE = 3,
+        DAMP  = 1,
+        PROPAGATE = 0,
+)
+
+WAVE (
+        NAME = "W3",
+        CENTER = (350, 0, -275),
+        WAVELENGTH = 13,
+        AMPLITUDE = 3,
+        DAMP  = 1,
+        PROPAGATE = 0,
+)
+
+WOOD (
+        NAME = "WOOD1"
+        COLOR = (.4, .1, 0),
+        THICKSCALE = 2,
+        RINGSCALE = .3,
+        TURBULENCE = 2,
+        SQUEEZE = 1,
+)
+MATERIAL (
+        NAME = "BALL"
+        TEXTURE = "WOOD1",
+        FUZZ = 0,
+        MIRROR = .05,
+        INDEX  = 1,
+        SREFLECT = 5,
+        REFLECT  = 5.0,
+        TRANS = (0, 0, 0),
+        AMBIENT = (.00, .00, .00),
+        DIFFUSE = (.1, .1, .1)
+)
+
+MATERIAL (
+        TEXTURE = "CHECK_BOARD",
+        NAME = "BOARD"
+        FUZZ = 0.0,
+        MIRROR = .5,
+        INDEX  = 1,
+        SREFLECT = 100,
+        TRANS = (0, 0, 0),
+        AMBIENT = (.1, .1, .1),
+        DIFFUSE = (.0, .3, .7)
+)
+SPHERE (
+    MATERIAL = "BALL",
+    REFLECT  = 2.5,
+    LOCATION = (-300, 100, 0),
+    RADIUS   = 75,
+)
+
+SPHERE (
+    MATERIAL = "BALL",
+    SREFLECT = 150,
+    LOCATION = (0, 100, 0),
+    RADIUS   = 75,
+)
+
+SPHERE (
+    MATERIAL = "BALL",
+    SREFLECT = 1000,
+    LOCATION = (300, 100, 0),
+    RADIUS   = 75,
+)
+
+BEGIN_BBOX
+[
+PARALLELOGRAM (
+        MATERIAL = "BALL",
+        LOCATION = (-400,10,-400),
+        V1       = (0, 200, 0),
+        V2       = (800, 0, 0),
+)
+]
+PARALLELOGRAM (
+        MATERIAL = "BOARD"
+        LOCATION = (-400, 10, 400),
+        V1       = (0, 0, -800),
+        V2       = (800, 0, 0),
+)
+
+PARALLELOGRAM (
+        MATERIAL = "BOARD"
+        LOCATION = (-400, 10, 400),
+        V1       = (800, 0, 0),
+        V2       = (0, -10, 0),
+)
+
+PARALLELOGRAM (
+        MATERIAL = "BOARD"
+        LOCATION = (-400, 10, 400),
+        V1       = (0, -10, 0),
+        V2       = (0, 0, -800),
+)
+END_BBOX

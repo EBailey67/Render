@@ -1,0 +1,351 @@
+[ 3D Futuristic Chess Board ]
+
+FILE_NAME = "CHESS.DAT"
+TIME      = 2.0
+ANTIALIASING (
+        COUNT = 4,
+        THRESHOLD = 1,
+)
+
+SCENE (
+        FIRST_SCAN = 200;
+        LAST_SCAN =  300;
+)
+
+SKY ( COLOR = (0.0, 0.1, 0.2) )
+
+OBSERVER (
+        LOCATION = (0, 300, 1000),
+        VIEW     = (0, -65, -216),
+        UP       = ( 0, 1, 0),
+)
+
+DIR_LIGHT (
+        COLOR = (.8, .8, .8);
+        DIRECTION = (-1.0, 1, 1);
+)
+
+CHECKERBOARD (
+        NAME = "CHECK_BOARD",
+        COLOR = (1.0, 1.0, 1.0),
+        SIZE = (100, 100, 100),
+)
+MARBLE (
+        NAME = "MARBLE",
+        COLOR = (0, .7, .2),
+        SCALE = .1,
+        TURBULENCE = 2.37,
+        SQUEEZE = 1,
+)
+
+MARBLE (
+        NAME = "MARBLE2",
+        COLOR = (0, .2, .7),
+        SCALE = .1,
+        TURBULENCE = 2.37,
+        SQUEEZE = 1,
+)
+
+WAVE (
+        NAME  = "W1"
+        CENTER = (0, .1, .2),
+        WAVELENGTH = 37,
+        AMPLITUDE = 50,
+        DAMP = 1.1,
+        PROPAGATE = 0.0,
+)
+
+WAVE (
+        NAME  = "W2"
+        CENTER = (100, 21, -275),
+        WAVELENGTH = 37,
+        AMPLITUDE = 77,
+        DAMP = 1.2,
+        PROPAGATE = 0.66,
+)
+
+WAVE (
+        NAME  = "W3"
+        CENTER = (-700, -10, 397),
+        WAVELENGTH = 37,
+        AMPLITUDE = 100,
+        DAMP = 1.5,
+        PROPAGATE = 0.5,
+)
+
+WAVE (
+        NAME  = "W4"
+        CENTER = (-100, .1, -200),
+        WAVELENGTH = 37,
+        AMPLITUDE = 50,
+        DAMP = 1.1,
+        PROPAGATE = 0.0,
+)
+
+MATERIAL (
+        NAME = "BOARD"
+        TEXTURE = "CHECK_BOARD",
+        FUZZ = 0.0,
+        MIRROR = .2,
+        INDEX  = 1,
+        SREFLECT = 3,
+        TRANS = (0, 0, 0),
+        AMBIENT = (.1, .1, .1),
+        DIFFUSE = (.8, .2, .2)
+)
+
+MATERIAL (
+        NAME = "WHITE"
+        TEXTURE = "MARBLE2"
+        FUZZ = 0.0,
+        MIRROR = .2,
+        INDEX = 0,
+        SREFLECT = 3,
+        TRANS = (0, 0, 0),
+        AMBIENT = (0, 0, 0),
+        DIFFUSE = (.9, .9, .9),
+)
+
+MATERIAL (
+        NAME = "BLACK"
+        TEXTURE = "MARBLE"
+        FUZZ = 0.0,
+        MIRROR = .15,
+        INDEX = 0,
+        SREFLECT = 3,
+        TRANS = (0, 0, 0),
+        AMBIENT = (0, 0, 0),
+        DIFFUSE = (.01, .01, .01),
+)
+
+BEGIN_BBOX
+PARALLELOGRAM (
+        MATERIAL = "BOARD"
+        LOCATION = (-400, 10, 400),
+        V1       = (0, 0, -800),
+        V2       = (800, 0, 0),
+)
+
+PARALLELOGRAM (
+        MATERIAL = "BOARD"
+        LOCATION = (-400, 10, 400),
+        V1       = (800, 0, 0),
+        V2       = (0, -10, 0),
+)
+
+PARALLELOGRAM (
+        MATERIAL = "BOARD"
+        LOCATION = (-400, 10, 400),
+        V1       = (0, -10, 0),
+        V2       = (0, 0, -800),
+)
+END_BBOX
+
+[ WHITES BACK PIECES ]
+BEGIN_BBOX
+SPHERE (
+        MATERIAL = "WHITE"
+        CENTER   = (350, 60, -50),
+        RADIUS   = 50;
+)
+
+SPHERE (
+        MATERIAL = "WHITE"
+        CENTER   = (350, 50, 50), 
+        RADIUS   = 40;
+)
+[
+SPHERE (
+        MATERIAL = "WHITE"
+        CENTER   = (350, 40, 150),
+        RADIUS   = 30;
+)
+
+SPHERE (
+        MATERIAL = "WHITE"
+        CENTER   = (350, 40, -150),
+        RADIUS   = 30;
+)
+]
+SPHERE (
+        MATERIAL = "WHITE"
+        CENTER   = (350, 40, 250),
+        RADIUS   = 30;
+)
+
+SPHERE (
+        MATERIAL = "WHITE"
+        CENTER   = (350, 40, -250),
+        RADIUS   = 30;
+)
+[
+SPHERE (
+        MATERIAL = "WHITE"
+        CENTER   = (350, 35, 350),
+        RADIUS   = 25;
+)
+
+SPHERE (
+        MATERIAL = "WHITE"
+        CENTER   = (350, 35, -350),
+        RADIUS   = 25;
+)
+]
+END_BBOX
+
+[ BLACKS BACK PIECES ]
+BEGIN_BBOX
+SPHERE (
+        MATERIAL = "BLACK"
+        CENTER   = (-350, 60, -50),
+        RADIUS   = 50,
+)
+
+SPHERE (
+        MATERIAL = "BLACK"
+        CENTER   = (-350, 50, 50), 
+        RADIUS   = 40;
+)
+[
+SPHERE (
+        MATERIAL = "BLACK"
+        CENTER   = (-350, 40, 150),
+        RADIUS   = 30;
+)
+
+SPHERE (
+        MATERIAL = "BLACK"
+        CENTER   = (-350, 40, -150),
+        RADIUS   = 30;
+)
+]
+SPHERE (
+        MATERIAL = "BLACK"
+        CENTER   = (-350, 40, 250),
+        RADIUS   = 30;
+)
+
+SPHERE (
+        MATERIAL = "BLACK"
+        CENTER   = (-350, 40, -250),
+        RADIUS   = 30;
+)
+[
+SPHERE (
+        MATERIAL = "BLACK"
+        CENTER   = (-350, 35, 350),
+        RADIUS   = 25;
+)
+
+SPHERE (
+        MATERIAL = "BLACK"
+        CENTER   = (-350, 35, -350),
+        RADIUS   = 25;
+)
+]
+END_BBOX
+
+[ HERE IS THE BEGINNING OF THE BLACK PAWNS ]
+BEGIN_BBOX
+SPHERE (
+        MATERIAL = "BLACK",
+        CENTER = (-250,30,350),
+        RADIUS = 20,
+)
+
+SPHERE (
+        MATERIAL = "BLACK",
+        CENTER = (-250,30,250),
+        RADIUS = 20,
+)
+
+SPHERE (
+        MATERIAL = "BLACK",
+        CENTER = (-250,30,150),
+        RADIUS = 20,
+)
+
+SPHERE (
+        MATERIAL = "BLACK",
+        CENTER = (-250,30, 50),
+        RADIUS = 20,
+)
+
+SPHERE (
+        MATERIAL = "BLACK"
+        CENTER = (-250,30,-50),
+        RADIUS = 20,
+)
+
+SPHERE (
+        MATERIAL = "BLACK"
+        CENTER = (-250,30,-150),
+        RADIUS = 20,
+)
+
+SPHERE (
+        MATERIAL = "BLACK"
+        CENTER = (-250,30,-250),
+        RADIUS = 20,
+)
+
+SPHERE (
+        MATERIAL = "BLACK"
+        CENTER = (-250,30,-350),
+        RADIUS = 20,
+)
+END_BBOX
+
+[ HERE IS THE BEGINNING OF THE WHITE PAWNS ]
+BEGIN_BBOX
+
+SPHERE (
+        MATERIAL = "WHITE"
+        CENTER = (250,30,350),
+        RADIUS = 20,
+)
+
+SPHERE (
+        MATERIAL = "WHITE"
+        CENTER = (250,30,250),
+        RADIUS = 20,
+)
+
+SPHERE (
+        MATERIAL = "WHITE"
+        CENTER = (250,30,150),
+        RADIUS = 20,
+)
+
+SPHERE (
+        MATERIAL = "WHITE"
+        CENTER = (250,30, 50),
+        RADIUS = 20,
+)
+
+SPHERE (
+        MATERIAL = "WHITE"
+        CENTER = (250,30,-50),
+        RADIUS = 20,
+)
+
+SPHERE (
+        MATERIAL = "WHITE"
+        CENTER = (250,30,-150),
+        RADIUS = 20,
+)
+
+SPHERE (
+        MATERIAL = "WHITE"
+        CENTER = (250,30,-250),
+        RADIUS = 20,
+)
+
+SPHERE (
+        MATERIAL = "WHITE"
+        CENTER = (250,30,-350),
+        RADIUS = 20,
+)
+END_BBOX
+
+

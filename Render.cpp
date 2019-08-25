@@ -13,7 +13,6 @@ int main(int argc, char *argv[], char *envp[])
     std::cout << Globals::Version << std::endl;
 	renderer.ProcessCommandline(argc, argv);
 
-
 	std::cout << GetNextRand();
 }
 
